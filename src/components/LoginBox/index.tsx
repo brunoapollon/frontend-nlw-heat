@@ -1,12 +1,17 @@
+import { useContext, useEffect } from 'react';
 import { VscGithubInverted } from 'react-icons/vsc';
+import { AuthContext } from '../../contexts/AuthContext';
+import { api } from '../../services/api';
 
 import styles from './styles.module.scss';
 
 export function LoginBox() {
+  const { signInUrl } = useContext(AuthContext);
+
   return (
     <div className={styles.loginBoxWrapper}>
       <strong>Entr e compartilhe sua mensagem</strong>
-      <a href="#" className={styles.signInWithGithub}>
+      <a href={signInUrl} className={styles.signInWithGithub}>
         <VscGithubInverted size={24} />
         Entrar com GitHub
       </a>
