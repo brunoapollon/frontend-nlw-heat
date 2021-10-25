@@ -33,6 +33,7 @@ export function MessageList() {
         setMessages(prevState =>
           [messageQueue[0], prevState[0], prevState[1]].filter(Boolean),
         );
+        messageQueue.shift();
       }
     }, 3000);
   }, []);
